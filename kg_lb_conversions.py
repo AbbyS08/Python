@@ -1,0 +1,14 @@
+# lb = kg * 2.20462
+kg1 = 1
+kg2 = 2
+kg3 = 3
+kg4 = 4
+convert = 2.20462
+lb1 = kg1*convert
+lb2 = kg2*convert
+lb3 = kg3*convert
+lb4 = kg4*convert
+print(f"{kg1} kilogram = {lb1} pounds")
+print(f"{kg2} kilograms = {lb2} pounds")
+print(f"{kg3} kilograms = {lb3:.5f} pounds")
+print(f"{kg4} kilograms = {lb4} pounds")
