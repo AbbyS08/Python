@@ -19,6 +19,6 @@ elif num_grade >= 0:
 # Checking if the numeric grade is below 0, exiting if it is
 else:
     print("The numeric grade must be between 0 and 100.")
-    exit()
+    exit() # Source: Python Institute page 3.1.1.9 and website: https://www.freecodecamp.org/news/python-exit-how-to-use-an-exit-function-in-python-to-stop-a-program/
 # Printing the letter grade to the user
 print(f"The letter grade is: {letter_grade}")
