@@ -5,10 +5,10 @@ bottles = 99
 while bottles > 0:
     # Printing the lyrics for bottles 99 to 3
     if bottles > 2:
-        print(f"{bottles} bottles of beer on the wall \n{bottles} bottles of beer \nTake one down, pass it around \n{bottles - 1} bottles of beer on the wall!")
+        print(f"{bottles} bottles of beer on the wall \n{bottles} bottles of beer \nTake one down, pass it around \n{bottles - 1} bottles of beer on the wall!\n")
     # Bottles 2 and 1 are printed separately because the lyrics change
     elif bottles == 2:
-        print(f"{bottles} bottles of beer on the wall \n{bottles} bottles of beer \nTake one down, pass it around \n{bottles - 1} bottle of beer on the wall!")
+        print(f"{bottles} bottles of beer on the wall \n{bottles} bottles of beer \nTake one down, pass it around \n{bottles - 1} bottle of beer on the wall!\n")
     elif bottles == 1:
         print(f"{bottles} bottle of beer on the wall \n{bottles} bottle of beer \nTake it down, pass it around \nNo bottles of beer on the wall!")
     # Decreasing the number of bottles by one for each time the loop ends
