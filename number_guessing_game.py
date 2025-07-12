@@ -6,7 +6,8 @@ import random
 def main():
     # Creating the random number
     random_number = random.randrange(1, 101)
-    while True:
+    number_guess = 0
+    while number_guess != random_number:
         try:
             # Asking for an integer number from the user
             number_guess = int(
@@ -17,7 +18,6 @@ def main():
                 if abs(number_guess - random_number) == 0:
                     print("You guessed the correct number!")
                     # Breaking out of the loop if the random number is correctly guessed
-                    break
                 elif abs(number_guess - random_number) <= 5:
                     print("Very Hot")
                 elif abs(number_guess - random_number) <= 15:
