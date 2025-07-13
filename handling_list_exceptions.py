@@ -8,7 +8,7 @@ def main():
         new_name = input("Enter the new artist name: ")
         # Replacing the artist at the index
         top_artists[index] = new_name
-        # Priting the new list
+        # Printing the new list
         print(f"Updated list: {top_artists}")
     # Error messages
     except (ValueError, IndexError):
