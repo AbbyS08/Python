@@ -21,9 +21,9 @@ class Employee:
         self.__employee_number = value
 
 class ProductionWorker(Employee):
-    def __init__(self, shift_number, hourly_pay_rate):
+    def __init__(self, name, number, shift_number, hourly_pay_rate):
         # Inheriting the instance variables from the superclass Employee
-        super().__init__(name = "name", number = "number") # Using default values as filler variables
+        super().__init__(name, number) 
         # Creating instance variables specific to the ProductionWorker class
         self.__shift_number = shift_number # 1 is day, 2 is night
         self.__hourly_pay_rate = hourly_pay_rate
@@ -45,17 +45,17 @@ class ProductionWorker(Employee):
 def main():
     try:
         # Creating an object using the ProductionWorker class
-        worker = ProductionWorker("0", "0") # Filler variables
+        worker = ProductionWorker("name", "number", "shift number", "hourly pay rate") # Filler variables to be set
         # Asking the user for employee details
         print("-Enter Employee Details-")
         worker.set_employee_name(input("Enter the Employee Name: "))
         worker.set_employee_number(input("Enter the Employee Number: "))
         worker.set_hourly_pay_rate(float(input("Enter the employee's Hourly Pay Rate: ")))
-        worker.set_shift_number(int(input("Enter the employee's Shift Number (1 is day, 2 is night): ")))
+        worker.set_shift_number(input("Enter the employee's Shift Number (1 is day, 2 is night): "))
         # Determining if the shift is night or day based on the inputted shift number
-        if worker._ProductionWorker__shift_number == 1:
+        if worker.get_shift_number() == "1":
             worker_shift = "Day"
-        elif worker._ProductionWorker__shift_number ==2:
+        elif worker.get_shift_number() == "2":
             worker_shift = "Night"
         else:
             worker_shift = "Invalid Input"
