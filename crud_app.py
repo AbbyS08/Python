@@ -49,10 +49,10 @@ def create():
             phone = input("Please enter the customer\'s phone: ")
             email = input("Please enter the customer\'s email: ")
             # Creating the entry using the inputted info
-            entry = f"{fname}, {lname}, {phone}, {email}"
+            entry = f"{fname}, {lname}, {phone}, {email} \n"
             # Adding the entry to the customer list
             customer.append(entry)
-            # Saving th entry to the file
+            # Saving the entry to the file
             save(customer)
         except Exception as e:
             print("Something went wrong.",e)
@@ -64,7 +64,6 @@ def save(output):
         # Writing each line to the file
         for line in output:
             file.write(line)
-            file.write("\n")
         # Closing the file
         file.close()
         print("File updated.")
@@ -75,18 +74,14 @@ def read():
     try:
         # Asking for the last name
         search_term = input("Please enter the last name of who you are looking for: ")
-        # Assigning the lines of the file to customer
-        customer = check()
-        while customer.count != 0: # Source: my Dad helped me with this function
-            # Making entry global so string methods can be used on it
-            global entry
-            # Printing the entry of the customer that matches the search term
-            entry = customer.pop()
+        # Assigning the lines of the file to customer_list
+        customer_list = check()
+
+        for i, entry in enumerate(customer_list): # Source: my Dad helped me
             if search_term in entry:
                 print(entry)
-                break
-            else:
-                print("Entry not found.")
+                return i, entry
+            
     except IndexError:
         print("There are no entries in the list.")
     except Exception as e:
@@ -95,14 +90,18 @@ def read():
 def update():
     try:
         # Using read to display the entry
-        read()
+        index, entry = read()
         # Getting what the user wants to change and the new value
         replacement = input("Enter value you want to change: ")
         change = input("Enter the new value: ")
         # Using replace to change the entry
         updated_entry = entry.replace(replacement, change, 1)
+        customer_list = check()
+        # Adding it to the list to be saved
+        customer_list.pop(index)
+        customer_list.append(updated_entry)
         # Saving the updated entry
-        save(updated_entry)
+        save(customer_list)
     except Exception as e:
         print(f"Something went wrong. {e}")
 
@@ -111,13 +110,14 @@ def update():
 def delete():
     try:
         # Displaying the entry 
-        read()
+        index, customer = read()
         # Asking the user if they want to delete the displayed entry
         confirmation = input("Do you want to delete this entry? (yes or no): ")
         if confirmation.lower() == "yes":
-            # Replacing the entry with nothing to delete it, then saving the empty line
-            updated = entry.replace(entry, "")
-            save(updated)
+            # Getting the line and popping it to remove it, not saving it back deletes it
+            customer_list = check()
+            customer_list.pop(index)
+            save(customer_list)
         elif confirmation.lower() =="no":
             # Not deleting the entry if the answer is no
             print("Entry not deleted.")
